@@ -1,4 +1,4 @@
-package lesson3;
+package pages;
 
 import com.codeborne.selenide.SelenideElement;
 
@@ -13,12 +13,9 @@ public class CreateTask {
     private final SelenideElement fixVersion = $x("//label[@for='fixVersions']/following-sibling::select//option[@value='10001']");
     private final SelenideElement labelDropDown = $x("//div[@class='jira-multi-select long-field']//span");
     private final SelenideElement label = $x("//li[contains(@id,'tratata')]");
-
     private final SelenideElement version = $x("//label[@for='versions']/following-sibling::select //option[@value='10001']");
     private final SelenideElement taskDropDown = $x("//div[@class='jira-multi-select long-field jira-issue-picker hasIcon']//span[@class='icon noloading drop-menu']");
-    private final SelenideElement task = $x("//li[@class='aui-list-item aui-list-item-li-test-123334---hw3']");
-    private final SelenideElement linkDropDown = $x("//div[@id='js-customfield_10100-ss-container']//span[@class='icon aui-ss-icon noloading drop-menu']");
-    private final SelenideElement link = $x("//div[@class='aui-list-scroll']//li[contains(@id, '12345')]");
+    private final SelenideElement task = $x("//ul[@id='поиск-по-истории']/li[1]");
     private final SelenideElement createButton = $x("//input[@value='Создать']");
     private final SelenideElement checkNewTask = $x("//a[@class='issue-created-key issue-link']");
     private final SelenideElement trigger = $x("//a[@class='order-options aui-button aui-style-default jira-aui-dropdown2-trigger']");
@@ -40,8 +37,6 @@ public class CreateTask {
         label.click();
         taskDropDown.click();
         task.click();
-        linkDropDown.click();
-        link.click();
         version.click();
         createButton.click();
         checkNewTask.shouldBe(visible);

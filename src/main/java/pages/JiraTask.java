@@ -1,4 +1,4 @@
-package lesson3;
+package pages;
 import java.util.List;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
@@ -6,7 +6,7 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class JiraTask {
-    private final SelenideElement status =$x("//span[@id='status-val']/child::span");
+    private final SelenideElement status =$x("//span[@id='status-val']//span");
     private final SelenideElement version =$x("//span[@id='fixfor-val']");
 
 

@@ -1,12 +1,12 @@
-package lesson3;
+package steps;
 
 import com.codeborne.selenide.Selenide;
+import io.cucumber.java.ru.И;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import pages.*;
 import java.util.List;
 
-public class testLesson3 extends WebHooks {
+public class Steps {
     private final StartPage page = new StartPage();
     private final Authorization authorizationTask = new Authorization();
     private final TestPage pageTest = new TestPage();
@@ -19,36 +19,31 @@ public class testLesson3 extends WebHooks {
     private int afterTaskCount;
 
 
-    @Test
-    @DisplayName("check autorization")
+    @И("Авторизация тест")
     public void loginTest() {
         page.login(log, pass);
-        Assertions.assertTrue(authorizationTask.isLogoVisible());
+        Assertions.assertTrue(authorizationTask.isLogoVisible(), "Авторизация прошла успешно");
     }
 
-    @Test
-    @DisplayName("go to project Test")
+    @И("Перейти в проект Тест")
     public void projectTest() {
-        page.login(log, pass);
+
         pageTest.projectTest();
-        Assertions.assertTrue(Authorization.isTitleExists("Открытые задачи"));
+        Assertions.assertTrue(Authorization.isTitleExists("Открытые задачи"),"Тест прошел");
     }
 
-    @Test
-    @DisplayName("check and update rows")
+    @И("Проверить строки")
     public void taskTestSelenium(){
-        page.login(log, pass);
-        Authorization.waitSignIn();
+
         pageTest.searchText("TestSeleniumATHomework");
-        List<String> projectStatus = jiraTask.statusCheck();
+        List <String> projectStatus = jiraTask.statusCheck();
         Assertions.assertEquals("СДЕЛАТЬ", projectStatus.get(0));
         Assertions.assertEquals("Version 2.0", projectStatus.get(1));
     }
 
-    @Test
-    @DisplayName("create new bug")
+    @И("Создать новый баг-репорт")
     public  void CreatJiraTask(){
-        page.login(log, pass);
+
         pageTest.projectTest();
         initTaskCount = pageTest.countTask();
         createTask.createNewTask("bug","describe" );
@@ -57,11 +52,10 @@ public class testLesson3 extends WebHooks {
         Assertions.assertEquals(initTaskCount, afterTaskCount-1);
     }
 
-    @Test
-    @DisplayName("change status")
+    @И("Поменять статус")
     public void CaStatus(){
-        page.login(log, pass);
         pageTest.projectTest();
         createTask.statusChange();
     }
 }
+

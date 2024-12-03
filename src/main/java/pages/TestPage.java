@@ -1,4 +1,4 @@
-package lesson3;
+package pages;
 
 import com.codeborne.selenide.SelenideElement;
 
@@ -8,7 +8,7 @@ public class TestPage {
     private final SelenideElement searchProject = $x("//a[@id='browse_link']");
     private final SelenideElement clickTest = $x("//a[@id='admin_main_proj_link_lnk']");
     private final SelenideElement searchInput = $x("//input[@id='quickSearchInput']");
-    private final SelenideElement countTasks = $x("//div[@class='showing']//child::span");
+    private final SelenideElement countTasks = $x("//div[@class='showing']/span");
 
 
     public void projectTest() {
