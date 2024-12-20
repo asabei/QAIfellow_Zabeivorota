@@ -1,11 +1,12 @@
 package pages;
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import org.junit.Assert;
 import static io.restassured.RestAssured.given;
 
 
-public class ApiRMSteps {
-
+public class ApiRM {
+    @Step("Второй")
     public void apiRm(String baseUri, int statusCode){
         Response mortyResponse = given()
                 .baseUri(baseUri)

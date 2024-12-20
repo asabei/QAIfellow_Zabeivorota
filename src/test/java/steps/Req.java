@@ -1,23 +1,20 @@
-package TestClasses;
+package steps;
 
-import hooks.WebHooks;
+import io.cucumber.java.ru.И;
 import org.json.JSONObject;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import pages.ApiReqSteps;
+import pages.ApiReq;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class ReqTest extends WebHooks{
-    @Test
-    @DisplayName("Test api reqres")
+public class Req {
+    @И("Проверка тест")
     public void checkResponseTest() throws IOException {
 
         JSONObject body = new JSONObject(new String(Files.readAllBytes(Paths.get("src/test/resources/data.json"))));
         body.put("name", "Tomato");
         body.put("job", "Eat maket");
-        new ApiReqSteps()
+        new ApiReq()
                 .apiReq("https://reqres.in", "/api/users", body.toString(), 201);
     }
 }
