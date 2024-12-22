@@ -1,12 +1,11 @@
 package pages;
 
 import io.qameta.allure.Step;
-
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.equalTo;
 
 public class ApiReq {
-    @Step("Первый")
+    @Step("Проверка ответа")
     public void apiReq(String baseUri, String postUri, String body, int statusCode){
         given()
                 .header("Content-type", "application/json")

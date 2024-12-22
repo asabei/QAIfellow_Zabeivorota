@@ -4,9 +4,8 @@ import io.restassured.response.Response;
 import org.junit.Assert;
 import static io.restassured.RestAssured.given;
 
-
 public class ApiRM {
-    @Step("Второй")
+    @Step("Проверка Рик и Морти")
     public void apiRm(String baseUri, int statusCode){
         Response mortyResponse = given()
                 .baseUri(baseUri)
