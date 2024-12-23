@@ -1,5 +1,5 @@
 *.zip
 .idea/
-.build/
+build/
 .allure/
 /target/
